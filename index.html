@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Normal Clicker Game</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+    <p id="TOTAL"> 0</p> 
+    <br>
+    <p id="SkillPoints" hidden>Skill Points: 0</p>
+    <button id="Button">
+        <h1>Click</h1>
+    </button>
+
+    <div id="ActiveCards"></div>
+
+
+<div class="upgrades">
+
+<!-- SHOP -->
+
+    <div id="ShopSideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeShop()">&times;</a>
+        
+        <div class="shop_upgrades">
+            
+            <button id="CLICKUPGRADE" class="upgrade_buttons">
+                <h1>Click Upgrade</h1>
+                <h2>Increase Click Power by 1</h2>
+                <p id="CLICKUPGRADECOST" class="cost"> 20</p>
+            </button>
+            
+            <button id="AUTOCLICKUPGRADE" class="upgrade_buttons">
+                <h1>Autoclicker</h1>
+                <h2>Autoclicks every second</h2>
+                <h3>Subsequent upgrades improve Autoclicker power + 10% of click power</h3>
+                <p id="AUTOCLICKUPGRADECOST" class="cost"> 50</p>
+            </button>
+            
+            <button id="EMPLOYEEHIRE" class="upgrade_buttons">
+                <h1>Buy an Employee</h1>
+                <h2>Buys an Employee, making 20/3s</h2>
+                <p id="EMPLOYEECOST" class="cost"> 100</p>
+            </button>
+            
+            <button id="PRODUCTIONUPGRADE" class="upgrade_buttons">
+                <h1>Increase Production</h1>
+                <h2 id="ProductionUpgradeDisplay">Increase all production by 10%</h2>
+                <p id="PRODUCTIONUPGRADECOST" class="cost"> 1000</p>
+            </button>
+        </div>
+    </div>
+
+<!-- CARDS -->
+
+    <div id="CardShopSideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCardShop()">&times;</a>
+
+
+        <div class="CardShopContainer">
+
+            <div id="CardCollection">
+                <div id="card1" class="list" draggable="true">
+                    <h1>Fuller Auto</h1>
+                    <h2>Autoclicker makes triple its production</h2>
+                </div>
+                <div id="card2" class="list" draggable="true">
+                    <h1>The More the Merrier</h1>
+                    <h2>Each employee will boost employee production by an additional 5%</h2>
+                </div>
+                <div id="card3" class="list" draggable="true">
+                    <h1>Stock Market</h1>
+                    <h2>Employees now have a chance to produce either 0.1x or 20x what they normally produce</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <!--        
+        <div class="WORKINPROGRESS">
+            <h1> ermmmm work in progress teehee!!</h1>
+            <img src="image/mhdiaries.jpg" alt="mhdiaries">
+            <h2> check back later ok gotcha alright</h2>
+        </div>
+
+        -->
+
+        <div id="wholelottabreaks">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+
+ 
+
+    </div>
+
+<!-- MAGIC TREE -->
+
+    <div id="MagicTreeSideNav" class="sidenav">
+        
+        <div class="MagicBackgroundContainer">
+            <div class="bubbles">
+                <span style="--i:11;"></span>
+                <span style="--i:40;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:34;"></span>
+                <span style="--i:9;"></span>
+                <span style="--i:35;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:29;"></span>
+                <span style="--i:30;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:27;"></span>
+                <span style="--i:42;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:39;"></span>
+                <span style="--i:31;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:28;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:5;"></span>
+                <span style="--i:7;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:41;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+                <span style="--i:6;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:8;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:13;"></span>
+            </div>
+        </div>
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMagicTree()">&times;</a>
+
+        <div class="MagicTreeUpgrades">
+            
+            <button id="MTU_1" class="upgrade_buttons_magic">
+                <h1>Incremental Clicks</h1>
+                <h2>Increase Click Power by 1% every time you click</h2>
+                <h3>Additionally increases Click Power by 1 each click</h3>
+                <h4>This includes clicks done by the Auto Clicker</h4>
+                <p id="MTU_1COST" class="cost"> 1 Skill Point</p>
+            </button>
+            
+            <button id="MTU_2" class="upgrade_buttons_magic" hidden>
+                <h1>Half Production Time</h1>
+                <h2>Cut Production Time by 50%</h2>
+                <h3>Auto Clicker now produces every 0.5s and Employees now produce every 1.5s</h3>
+                <p id="MTU_2COST" class="cost"> 10 Skill Points</p>
+            </button>
+            
+            <button id="MTU_3" class="upgrade_buttons_magic" hidden>
+                <h1>Better Production</h1>
+                <h2>Halves the cost for the Increase Production upgrade</h2>
+                <h3>Additionally increases production value from 10% to 30%</h3>
+                <p id="MTU_3COST" class="cost"> 1,000 Skill Points</p>
+            </button>
+
+            <button id="MTU_4" class="upgrade_buttons_magic" hidden>
+                <h1>Rigged Market</h1>
+                <h2>Stock Market will no longer have a negative drawback to it</h2>
+                <h3>Employee production is now between x1 to x30</h3>
+                <p id="MTU_4COST" class="cost"> 100,000 Skill Points</p>
+            </button>
+        
+            <button id="MTU_5" class="upgrade_buttons_magic" hidden>
+                <h1>Blessed Finger</h1>
+                <h2>Gain 0.01% to 0.1% of your TOTAL with every click</h2>
+                <h3>Does NOT affect autoclick</h3>
+                <p id="MTU_5COST" class="cost"> 25,000,000 Skill Points</p>
+            </button>
+
+            <button id="MTU_6" class="upgrade_buttons_magic" hidden>
+                <h1>The Merriest Workplace</h1>
+                <h2>The More the Merrier increases to an additional 20% for every employee</h2>
+                <p id="MTU_6COST" class="cost"> 1,000,000,000 Skill Points</p>
+            </button>
+
+            <button id="MTU_7" class="upgrade_buttons_magic" hidden>
+                <h1>Confined Weapon</h1>
+                <h2>Autoclicker is 5x faster and gets a 10x upgrade</h2>
+                <h3>Upgrades to Autoclicker now will double its power</h3>
+                <h3>Each cilck from the autoclicker increases its power by 0.1% now</h3>
+                <p id="MTU_7COST" class="cost"> 500,000,000,000,000 Skill Points</p>
+            </button>
+
+            <div id="wholelottabreaks">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            </div>
+        </div>
+
+<!--        <div class="WORKINPROGRESS">
+            <h1> this is a WIP too!!!</h1>
+            <img src="image/gore_magala.jpg" alt="goremagala" width="300px" height="300px">
+            <h2> did you know that WIP stands for "Work In Progress"</h2>
+        </div>
+-->
+</div>
+
+
+  <div id="main_Upgrade">
+    <span id="ShopSelect" style="font-size:30px;cursor:pointer" onclick="openShop()">&#9776; Shop</span>
+  </div>  
+
+
+  <div id="CardShop">
+    <span id="CardShopSelect" style="font-size:30px;cursor:pointer" onclick="openCardShop()" hidden>&#9776; Cards</span>
+  </div>
+
+
+  <div id="MagicTree">
+    <span id="MagicTreeSelect" style="font-size:30px;cursor:pointer" onclick="openMagicTree()" hidden>&#9776; Magic Tree</span>
+  </div>
+
+
+<div class="SettingsContainer">
+    <img src="image/settings.png" class="menu-icon" onclick="openSettings()" draggable="false">
+    <div class="menu-box" id="menu">
+        <img src="image/close.png" class="close-icon" onclick="closeSettings()" draggable="false">
+
+        <p id="DebugText"> Debug Options</p>
+
+        <button id="DEBUG" class="debugButtons">
+            <h2>+10,000</h2>
+        </button>
+        
+        <button id="DEBUG2" class="debugButtons">
+            <h2>+1,000,000</h2>
+        </button>
+        
+        <button id="DEBUG3" class="debugButtons">
+            <h2>+5,000,000,000,000,000 Skill Points</h2>
+        </button>
+
+    </div>
+</div>
+
+
+</body>
+
+<script src="script/script.js"></script>
+</html>
