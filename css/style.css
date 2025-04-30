@@ -480,3 +480,7 @@ body {
       flex-direction: column;
   }
 }
+
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
